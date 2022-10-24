@@ -42,9 +42,45 @@ extension View {
 }
 
 struct LevelOneView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+    
+     @State private var imageShow = 0
+     @State var isShaken = false
+     @State private var alertIsPresented = false
+     
+     var body: some View {
+         VStack{
+                 ZStack{
+                     
+                     FoodImageUIView(shakeAmount: $imageShow)
+                     
+                     Image("mushroom")
+                         .onShake {
+                             imageShow += 1
+                             isShaken = true
+                             print("Device shaken!")
+                         }
+                     if imageShow == 0 {
+                         
+                         Button(action: {
+                             self.alertIsPresented = true
+                         }, label: {
+                             Image("balloon")
+                         })
+                         .frame(width: 80, height: 80, alignment: .center)
+                         .padding()
+                         .foregroundColor(.clear)
+                         .offset(x: 50, y: -80)
+                         .alert(isPresented: $alertIsPresented, content: {
+                             Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+                         })
+                             
+                             
+                     }
+                     
+                 }
+         }
+             
+     }
 }
 
 struct LevelOneView_Previews: PreviewProvider {
