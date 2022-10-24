@@ -11,7 +11,7 @@ import SwiftUI
 struct VidaDeInsetoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LevelOneView()
         }
     }
 }
