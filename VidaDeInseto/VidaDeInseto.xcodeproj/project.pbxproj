@@ -12,6 +12,7 @@
 		8AE8CFE328FECAFF00153BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */; };
 		8AE8CFE628FECAFF00153BE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8CFE528FECAFF00153BE3 /* Preview Assets.xcassets */; };
 		BD3031EF2906BAE300AAC788 /* LevelOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3031EE2906BAE300AAC788 /* LevelOneView.swift */; };
+		BD3031F12906BBA600AAC788 /* FoodImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AE8CFE528FECAFF00153BE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD3031EE2906BAE300AAC788 /* LevelOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneView.swift; sourceTree = "<group>"; };
+		BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				8AE8CFDE28FECAFE00153BE3 /* VidaDeInsetoApp.swift */,
 				8AE8CFE028FECAFE00153BE3 /* ContentView.swift */,
 				BD3031EE2906BAE300AAC788 /* LevelOneView.swift */,
+				BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */,
 				8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */,
 				8AE8CFE428FECAFF00153BE3 /* Preview Content */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3031F12906BBA600AAC788 /* FoodImageUIView.swift in Sources */,
 				8AE8CFE128FECAFE00153BE3 /* ContentView.swift in Sources */,
 				8AE8CFDF28FECAFE00153BE3 /* VidaDeInsetoApp.swift in Sources */,
 				BD3031EF2906BAE300AAC788 /* LevelOneView.swift in Sources */,
