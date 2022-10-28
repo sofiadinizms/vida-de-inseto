@@ -15,6 +15,7 @@
 		8AE8CFE628FECAFF00153BE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8CFE528FECAFF00153BE3 /* Preview Assets.xcassets */; };
 		BD3031EF2906BAE300AAC788 /* LevelOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3031EE2906BAE300AAC788 /* LevelOneView.swift */; };
 		BD3031F12906BBA600AAC788 /* FoodImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */; };
+		FCE58F8D2909D890005BBCB1 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		8AE8CFE528FECAFF00153BE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD3031EE2906BAE300AAC788 /* LevelOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneView.swift; sourceTree = "<group>"; };
 		BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageUIView.swift; sourceTree = "<group>"; };
+		FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				8AE8CFE028FECAFE00153BE3 /* ContentView.swift */,
 				BD3031EE2906BAE300AAC788 /* LevelOneView.swift */,
 				BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */,
+				FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */,
 				8A338E78290971D90096209E /* Level4View.swift */,
 				8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */,
 				8AE8CFE428FECAFF00153BE3 /* Preview Content */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A338E7D290973360096209E /* LevelSixView.swift in Sources */,
+				FCE58F8D2909D890005BBCB1 /* LevelTwoView.swift in Sources */,
 				BD3031F12906BBA600AAC788 /* FoodImageUIView.swift in Sources */,
 				8AE8CFE128FECAFE00153BE3 /* ContentView.swift in Sources */,
 				8AE8CFDF28FECAFE00153BE3 /* VidaDeInsetoApp.swift in Sources */,
@@ -283,7 +287,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VidaDeInseto/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = B7WNA79JAY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -312,7 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VidaDeInseto/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = B7WNA79JAY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
