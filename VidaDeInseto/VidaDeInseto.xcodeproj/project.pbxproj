@@ -17,6 +17,7 @@
 		BD3031F12906BBA600AAC788 /* FoodImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */; };
 		FCD295FF29100D230081E244 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD295FE29100D230081E244 /* AudioManager.swift */; };
 		FCD2960129100DF30081E244 /* ForestAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FCD2960029100DF30081E244 /* ForestAudio.m4a */; };
+		FCD2960329100ECC0081E244 /* VolumeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD2960229100ECC0081E244 /* VolumeObserver.swift */; };
 		FCE58F8D2909D890005BBCB1 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageUIView.swift; sourceTree = "<group>"; };
 		FCD295FE29100D230081E244 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		FCD2960029100DF30081E244 /* ForestAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ForestAudio.m4a; sourceTree = "<group>"; };
+		FCD2960229100ECC0081E244 /* VolumeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeObserver.swift; sourceTree = "<group>"; };
 		FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				8AE8CFE028FECAFE00153BE3 /* ContentView.swift */,
 				BD3031EE2906BAE300AAC788 /* LevelOneView.swift */,
 				FCD295FE29100D230081E244 /* AudioManager.swift */,
+				FCD2960229100ECC0081E244 /* VolumeObserver.swift */,
 				BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */,
 				FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */,
 				8A338E78290971D90096209E /* Level4View.swift */,
@@ -164,6 +167,7 @@
 				FCD295FF29100D230081E244 /* AudioManager.swift in Sources */,
 				BD3031F12906BBA600AAC788 /* FoodImageUIView.swift in Sources */,
 				8AE8CFE128FECAFE00153BE3 /* ContentView.swift in Sources */,
+				FCD2960329100ECC0081E244 /* VolumeObserver.swift in Sources */,
 				8AE8CFDF28FECAFE00153BE3 /* VidaDeInsetoApp.swift in Sources */,
 				8A338E79290971D90096209E /* Level4View.swift in Sources */,
 				BD3031EF2906BAE300AAC788 /* LevelOneView.swift in Sources */,
