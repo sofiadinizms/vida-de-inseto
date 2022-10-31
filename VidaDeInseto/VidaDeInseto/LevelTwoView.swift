@@ -23,16 +23,24 @@ struct PinchGestureView: View {
     @State private var zoomLevel: CGFloat = 1
     
     var body: some View {
-        Image("mushroom")
-            .scaleEffect(setZoom(magnification: magnificationLevel))
-            .gesture(MagnificationGesture().updating($magnificationLevel, body: { value, state, _ in
-                state = value
-            }) .onEnded({ value in
-                withAnimation {self.zoomLevel = minZoom
-                }
-                
-                
-            }))
+        
+        ZStack{
+            Image("background3")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+            
+            Image("mushroom")
+                .scaleEffect(setZoom(magnification: magnificationLevel))
+                .gesture(MagnificationGesture().updating($magnificationLevel, body: { value, state, _ in
+                    state = value
+                }) .onEnded({ value in
+                    withAnimation {self.zoomLevel = minZoom
+                    }
+                    
+                    
+                }))
+        }
     }
     
     func setZoom(magnification: CGFloat) -> CGFloat {

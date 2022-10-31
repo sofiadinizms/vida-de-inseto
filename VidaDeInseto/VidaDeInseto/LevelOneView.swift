@@ -47,38 +47,47 @@ struct LevelOneView: View {
      @State var isShaken = false
      @State private var alertIsPresented = false
      
-     var body: some View {
-         VStack{
-                 ZStack{
-                     
-                     FoodImageUIView(shakeAmount: $imageShow)
-                     
-                     Image("mushroom")
-                         .onShake {
-                             imageShow += 1
-                             isShaken = true
-                             print("Device shaken!")
-                         }
-                     if imageShow == 0 {
-                         
-                         Button(action: {
-                             self.alertIsPresented = true
-                         }, label: {
-                             Image("balloon")
-                         })
-                         .frame(width: 80, height: 80, alignment: .center)
-                         .padding()
-                         .foregroundColor(.clear)
-                         .offset(x: 50, y: -80)
-                         .alert(isPresented: $alertIsPresented, content: {
-                             Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
-                         })
-                             
-                             
-                     }
-                     
-                 }
-         }
+    var body: some View {
+        
+        ZStack{
+        
+        Image("background1")
+            .resizable()
+            .edgesIgnoringSafeArea(.all)
+            .aspectRatio(contentMode: .fill)
+        
+        VStack{
+            ZStack{
+                
+                FoodImageUIView(shakeAmount: $imageShow)
+                
+                Image("mushroom")
+                    .onShake {
+                        imageShow += 1
+                        isShaken = true
+                        print("Device shaken!")
+                    }
+                if imageShow == 0 {
+                    
+                    Button(action: {
+                        self.alertIsPresented = true
+                    }, label: {
+                        Image("balloon")
+                    })
+                    .frame(width: 80, height: 80, alignment: .center)
+                    .padding()
+                    .foregroundColor(.clear)
+                    .offset(x: 50, y: -80)
+                    .alert(isPresented: $alertIsPresented, content: {
+                        Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+                    })
+                    
+                    
+                }
+                
+            }
+        }
+    }
              
      }
 }

@@ -23,7 +23,13 @@ struct LevelSixView: View {
             }
     
     var body: some View {
-
+        
+        ZStack{
+        Image("background6")
+            .resizable()
+            .edgesIgnoringSafeArea(.all)
+            .aspectRatio(contentMode: .fill)
+        
         ZStack{
             Circle()
                 .fill(Color.black)
@@ -59,7 +65,7 @@ struct LevelSixView: View {
             Text(won ? "Ganhou" : "")
             
         }
-        
+    }
     }
 }
 

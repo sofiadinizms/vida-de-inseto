@@ -4,7 +4,6 @@
 //
 //  Created by aaav on 20/10/22.
 //
-
 import SwiftUI
 
 struct Level4View: View {
@@ -18,9 +17,19 @@ struct Level4View: View {
     @State var text : String = "Tô de abuso,\npreciso de um minutinho."
     
     var body: some View {
+        
+        
+        ZStack{
+            
+        Image("background4")
+            .resizable()
+            .edgesIgnoringSafeArea(.all)
+            .aspectRatio(contentMode: .fill)
+        
         VStack{
             Text(text)
         }
+        .background(Color.red)
         .onChange(of: scenePhase) { newPhase in
             if (newPhase == .active) && active {
                 print("Active")
@@ -50,10 +59,11 @@ struct Level4View: View {
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
                 startTimeString = formatter.string(from: Date.now)
                 active.toggle()
-
+                
             }
         }
         
+    }
     }
 }
 struct Level4View_Previews: PreviewProvider {
