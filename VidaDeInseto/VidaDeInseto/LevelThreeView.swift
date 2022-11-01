@@ -7,18 +7,33 @@
 
 import SwiftUI
 
-func Check(){
-    print(UIScreen.main.brightness)
-}
-
 struct LevelThreeView: View {
-    @State var brightness = UIScreen.main.brightness
+    @State var night = false
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
-        if brightness == 0{
-            Image(systemName: "star.fill")
-        } else {
-            Text("Brilho não tá no zero")
+        VStack{
+            if night{
+                Image("moon")
+            } else {
+                Image("sun")
+            }
+            Image("sad-mushroom")
+        }.onChange(of: scenePhase) { newPhase in
+            if (newPhase == .active) {
+                print("Active -- \(UIScreen.main.brightness)")
+                if UIScreen.main.brightness == CGFloat(0){
+                    print("ganhou!")
+                    night = true
+                }
+                
+            } else if newPhase == .inactive{
+                print("Inactive")
+                
+            } else if (newPhase == .background) {
+                print("Background")
+            }
+            
         }
     }
 }
