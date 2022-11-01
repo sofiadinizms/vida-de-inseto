@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Level4View: View {
+struct LevelFourView: View {
     @Environment(\.scenePhase) var scenePhase
     
     @AppStorage("startTime") var startTimeString : String = ""
@@ -68,6 +68,6 @@ struct Level4View: View {
 }
 struct Level4View_Previews: PreviewProvider {
     static var previews: some View {
-        Level4View()
+        LevelFourView()
     }
 }

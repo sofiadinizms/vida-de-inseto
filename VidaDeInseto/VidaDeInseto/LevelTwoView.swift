@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct LevelTwoView: View {
+    @Binding var nextLevel: Int
+    
     var body: some View {
-        PinchGestureView()
+        PinchGestureView(nextLevel: $nextLevel)
     }
 }
 
@@ -21,6 +23,7 @@ struct PinchGestureView: View {
     
     @GestureState private var magnificationLevel: CGFloat = 1
     @State private var zoomLevel: CGFloat = 1
+    @Binding var nextLevel: Int
     
     var body: some View {
         
@@ -37,6 +40,8 @@ struct PinchGestureView: View {
                 }) .onEnded({ value in
                     withAnimation {self.zoomLevel = minZoom
                     }
+                    nextLevel += 1
+                    
                     
                     
                 }))
@@ -51,6 +56,6 @@ struct PinchGestureView: View {
 
 struct LevelTwoView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelTwoView()
+        LevelTwoView(nextLevel: .constant(1))
     }
 }
