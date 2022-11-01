@@ -23,13 +23,13 @@ struct ContentView: View {
         case 2:
             LevelTwoView(nextLevel: $level)
         case 3:
-            LevelThreeView()
+            LevelThreeView(nextLevel: $level)
         case 4:
-            LevelFourView()
+            LevelFourView(nextLevel: $level)
         case 5:
-            LevelFiveView()
+            LevelFiveView(nextLevel: $level)
         case 6:
-            LevelSixView()
+            LevelSixView(nextLevel: $level)
         default:
             LevelOneView(nextLevel: $level)
         }

@@ -15,6 +15,7 @@ struct LevelFourView: View {
     
     @State var active : Bool = false
     @State var text : String = "Tô de abuso,\npreciso de um minutinho."
+    @Binding var nextLevel: Int
     
     var body: some View {
         
@@ -46,6 +47,7 @@ struct LevelFourView: View {
                     text = "Já tá de volta?\nMe deixa em paz um minutinho."
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
+                    nextLevel += 1
                 }
                 
                 
@@ -68,6 +70,6 @@ struct LevelFourView: View {
 }
 struct Level4View_Previews: PreviewProvider {
     static var previews: some View {
-        LevelFourView()
+        LevelFourView(nextLevel: .constant(1))
     }
 }
