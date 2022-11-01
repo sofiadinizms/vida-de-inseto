@@ -51,6 +51,8 @@ struct LevelOneView: View {
          VStack{
                  ZStack{
                      
+                     Image("sky")
+                     
                      FoodImageUIView(shakeAmount: $imageShow)
                      
                      Image("mushroom")
@@ -69,7 +71,7 @@ struct LevelOneView: View {
                          .frame(width: 80, height: 80, alignment: .center)
                          .padding()
                          .foregroundColor(.clear)
-                         .offset(x: 50, y: -80)
+                         .offset(x: 50, y: -120)
                          .alert(isPresented: $alertIsPresented, content: {
                              Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
                          })

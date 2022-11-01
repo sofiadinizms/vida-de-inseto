@@ -20,6 +20,8 @@ struct Level4View: View {
     var body: some View {
         VStack{
             Text(text)
+            
+            Image("mushroom")
         }
         .onChange(of: scenePhase) { newPhase in
             if (newPhase == .active) && active {
@@ -33,7 +35,7 @@ struct Level4View: View {
                 
                 let diffComponents = Calendar.current.dateComponents([.second], from: start, to: end)
                 
-                if (diffComponents.second ?? 0 < 60){
+                if (diffComponents.second ?? 0 < 20){
                     text = "Já tá de volta?\nMe deixa em paz um minutinho."
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
