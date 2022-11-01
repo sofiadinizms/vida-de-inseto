@@ -27,7 +27,9 @@ struct LevelThreeView: View {
                 if UIScreen.main.brightness == CGFloat(0){
                     print("ganhou!")
                     night = true
-                    nextLevel += 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                        nextLevel += 1
+                    }
                 }
                 
             } else if newPhase == .inactive{

@@ -60,7 +60,9 @@ struct LevelSixView: View {
                         .onEnded {_ in
                             angleValue = 0.0
                             rounds = 0
-                            nextLevel += 1
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                                nextLevel += 1
+                            }
                         }
                 )
             

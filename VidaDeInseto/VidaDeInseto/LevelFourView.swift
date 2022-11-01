@@ -47,7 +47,9 @@ struct LevelFourView: View {
                     text = "Já tá de volta?\nMe deixa em paz um minutinho."
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
-                    nextLevel += 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                        nextLevel += 1
+                    }
                 }
                 
                 

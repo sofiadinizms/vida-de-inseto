@@ -40,7 +40,9 @@ struct LevelFiveView: View {
                 print("volume máximo")
             } else if volObserver.volume == 0.0 {
                 print("volume mínimo")
-                nextLevel += 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                    nextLevel += 1
+                }
             } else {
                 print("faz alguma coisa")
             }

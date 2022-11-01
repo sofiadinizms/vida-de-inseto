@@ -67,7 +67,9 @@ struct LevelOneView: View {
                             imageShow += 1
                             
                             if (imageShow == 2){
-                                nextLevel += 1
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                                    nextLevel += 1
+                                }
                             }
                             
                             isShaken = true
