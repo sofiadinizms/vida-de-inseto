@@ -70,15 +70,15 @@
 			isa = PBXGroup;
 			children = (
 				8AE8CFDE28FECAFE00153BE3 /* VidaDeInsetoApp.swift */,
-				8A338E7C290973360096209E /* LevelSixView.swift */,
 				8AE8CFE028FECAFE00153BE3 /* ContentView.swift */,
-				BD3031EE2906BAE300AAC788 /* LevelOneView.swift */,
 				FCD295FE29100D230081E244 /* AudioManager.swift */,
 				FCD2960229100ECC0081E244 /* VolumeObserver.swift */,
 				FCD2960429100FA30081E244 /* LevelFiveView.swift */,
 				BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */,
+				BD3031EE2906BAE300AAC788 /* LevelOneView.swift */,
 				FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */,
 				8A338E78290971D90096209E /* Level4View.swift */,
+				8A338E7C290973360096209E /* LevelSixView.swift */,
 				8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */,
 				FCD2960029100DF30081E244 /* ForestAudio.m4a */,
 				8AE8CFE428FECAFF00153BE3 /* Preview Content */,
