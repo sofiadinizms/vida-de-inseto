@@ -14,6 +14,7 @@ struct LevelSixView: View {
     @State var rounds : Int = 0
     @State var prev : CGFloat = 0
     @State var won : Bool = false
+    @Binding var nextLevel: Int
     
     private func change(location: CGPoint) {
             let vector = CGVector(dx: location.x, dy: location.y)
@@ -59,6 +60,9 @@ struct LevelSixView: View {
                         .onEnded {_ in
                             angleValue = 0.0
                             rounds = 0
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                                nextLevel += 1
+                            }
                         }
                 )
             
@@ -71,6 +75,6 @@ struct LevelSixView: View {
 
 struct LevelSixView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelSixView()
+        LevelSixView(nextLevel: .constant(1))
     }
 }

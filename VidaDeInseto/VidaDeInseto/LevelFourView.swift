@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Level4View: View {
+struct LevelFourView: View {
     @Environment(\.scenePhase) var scenePhase
     
     @AppStorage("startTime") var startTimeString : String = ""
@@ -15,6 +15,7 @@ struct Level4View: View {
     
     @State var active : Bool = false
     @State var text : String = "Tô de abuso,\npreciso de um minutinho."
+    @Binding var nextLevel: Int
     
     var body: some View {
         
@@ -46,6 +47,9 @@ struct Level4View: View {
                     text = "Já tá de volta?\nMe deixa em paz um minutinho."
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                        nextLevel += 1
+                    }
                 }
                 
                 
@@ -68,6 +72,6 @@ struct Level4View: View {
 }
 struct Level4View_Previews: PreviewProvider {
     static var previews: some View {
-        Level4View()
+        LevelFourView(nextLevel: .constant(1))
     }
 }

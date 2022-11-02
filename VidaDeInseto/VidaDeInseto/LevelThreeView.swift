@@ -11,6 +11,7 @@ struct LevelThreeView: View {
     @State var brightness = UIScreen.main.brightness
     @State var night = false
     @Environment(\.scenePhase) var scenePhase
+    @Binding var nextLevel: Int
     
     var body: some View {
         VStack{
@@ -26,6 +27,9 @@ struct LevelThreeView: View {
                 if UIScreen.main.brightness == CGFloat(0){
                     print("ganhou!")
                     night = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                        nextLevel += 1
+                    }
                 }
                 
             } else if newPhase == .inactive{
@@ -42,6 +46,6 @@ struct LevelThreeView: View {
 
 struct LevelThreeView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelThreeView()
+        LevelThreeView(nextLevel: .constant(1))
     }
 }

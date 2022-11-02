@@ -14,10 +14,11 @@ import UIKit
 struct LevelFiveView: View {
     @State private var audioPlayer: AVAudioPlayer!
     @ObservedObject private var volObserver = VolumeObserver()
+    @Binding var nextLevel: Int
     
-    init() {
-        
-    }
+//    init() {
+//        
+//    }
     
     var body: some View {
         
@@ -39,6 +40,9 @@ struct LevelFiveView: View {
                 print("volume máximo")
             } else if volObserver.volume == 0.0 {
                 print("volume mínimo")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                    nextLevel += 1
+                }
             } else {
                 print("faz alguma coisa")
             }
@@ -51,7 +55,7 @@ struct LevelFiveView: View {
     
     struct LevelFiveView_Previews: PreviewProvider {
         static var previews: some View {
-            LevelFiveView()
+            LevelFiveView(nextLevel: .constant(1))
         }
     }
     
