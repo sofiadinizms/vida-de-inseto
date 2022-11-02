@@ -12,33 +12,61 @@ struct LevelThreeView: View {
     @State var night = false
     @Environment(\.scenePhase) var scenePhase
     @Binding var nextLevel: Int
+    @State private var alertIsPresented = false
     
     var body: some View {
-        VStack{
-            if night{
-                Image("moon")
-            } else {
-                Image("sun")
-            }
-            Image("sad-mushroom")
-        }.onChange(of: scenePhase) { newPhase in
-            if (newPhase == .active) {
-                print("Active -- \(UIScreen.main.brightness)")
-                if UIScreen.main.brightness == CGFloat(0){
-                    print("ganhou!")
-                    night = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
-                        nextLevel += 1
+        ZStack{
+            
+            Image("sky")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20)
+            
+            Image("tronco2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:20)
+            
+            VStack{
+//                if night{
+//                    Image("moon")
+//                } else {
+//                    Image("sun")
+//                }
+                Button(action: {
+                    self.alertIsPresented = true
+                }, label: {
+                    Image("balloon3")
+                })
+                .frame(width: 80, height: 80, alignment: .center)
+                .padding()
+                .foregroundColor(.clear)
+                .offset(x: 80, y: -20)
+                .alert(isPresented: $alertIsPresented, content: {
+                    Alert(title: Text("Hora da soneca"), message: Text("Txai está querendo descansar e essa luz está atrapalhando. Mostre a ele que você se importa com a qualidade do sono dele."), dismissButton: .default(Text("Vamos lá!")))
+                })
+                Image(night ? "happy-mushroom" : "sad-mushroom")
+            }.onChange(of: scenePhase) { newPhase in
+                if (newPhase == .active) {
+                    print("Active -- \(UIScreen.main.brightness)")
+                    if UIScreen.main.brightness == CGFloat(0){
+                        print("ganhou!")
+                        night = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                            nextLevel += 1
+                        }
                     }
+                    
+                } else if newPhase == .inactive{
+                    print("Inactive")
+                    
+                } else if (newPhase == .background) {
+                    print("Background")
                 }
                 
-            } else if newPhase == .inactive{
-                print("Inactive")
-                
-            } else if (newPhase == .background) {
-                print("Background")
             }
-            
         }
     }
 }

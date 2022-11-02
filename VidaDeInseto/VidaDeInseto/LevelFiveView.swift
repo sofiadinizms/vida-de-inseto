@@ -15,35 +15,69 @@ struct LevelFiveView: View {
     @State private var forestPlayer: AVAudioPlayer!
     @ObservedObject private var volObserver = VolumeObserver()
     @Binding var nextLevel: Int
+    @State private var alertIsPresented = false
+    @State private var levelCompleted = false
     
     var body: some View {
         
-        ZStack {
+        ZStack{
+            Image("sky")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20)
             
-            Text("current volume is \(volObserver.volume)")
+            Image("tronco2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:20)
             
-            
-        }
-        .onAppear(perform: {
-            forestPlayer = playSounds("ForestAudio.m4a", -1)
-            forestPlayer.play()
-        })
-        
-        .onChange(of: volObserver.volume) { _ in
-            if volObserver.volume == 1.0 {
-                print("volume máximo")
-            } else if volObserver.volume == 0.0 {
+            VStack {
                 
-                print("volume mínimo")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
-                    nextLevel += 1
-                    forestPlayer?.stop()
+                //Text("current volume is \(volObserver.volume)")
+                Button(action: {
+                    self.alertIsPresented = true
+                }, label: {
+                    Image("balloon5")
+                })
+                .frame(width: 80, height: 80, alignment: .center)
+                .padding()
+                .foregroundColor(.clear)
+                .offset(x: 100, y: -20)
+                .alert(isPresented: $alertIsPresented, content: {
+                    Alert(title: Text("Sinta a paz da natureza"), message: Text("Aproveita para curtir com o Txai os sons da natureza."), dismissButton: .default(Text("Vamos lá!")))
+                })
+                Image(levelCompleted ? "happy-mushroom" : "sad-mushroom")
+                
+                
+            }
+            .onAppear(perform: {
+                
+                forestPlayer = playSounds("ForestAudio.m4a", -1)
+                forestPlayer.play()
+                
+                
+            })
+            
+            .onChange(of: volObserver.volume) { _ in
+                if volObserver.volume == 1.0 {
+                    print("volume máximo")
+                } else if volObserver.volume == 0.0 {
+                    print("volume mínimo")
+                    levelCompleted = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                       nextLevel += 1
+                       forestPlayer?.stop()
+                    }
+                } else {
+                    print("faz alguma coisa")
                 }
-            } else {
-                print("faz alguma coisa")
+                
             }
             
         }
+        
         
         
     }

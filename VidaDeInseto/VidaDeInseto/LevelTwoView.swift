@@ -11,7 +11,9 @@ struct LevelTwoView: View {
     @Binding var nextLevel: Int
     
     var body: some View {
-        PinchGestureView(nextLevel: $nextLevel)
+        VStack{
+            PinchGestureView(nextLevel: $nextLevel)
+        }
     }
 }
 
@@ -24,29 +26,54 @@ struct PinchGestureView: View {
     @GestureState private var magnificationLevel: CGFloat = 1
     @State private var zoomLevel: CGFloat = 1
     @Binding var nextLevel: Int
+    @State private var alertIsPresented = false
+    @State private var didPinch = false
     
     var body: some View {
         
         ZStack{
-            Image("background3")
+            Image("sky")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fill)
+                .offset(x:20)
             
-            Image("mushroom")
-                .scaleEffect(setZoom(magnification: magnificationLevel))
-                .gesture(MagnificationGesture().updating($magnificationLevel, body: { value, state, _ in
-                    state = value
-                }) .onEnded({ value in
-                    withAnimation {self.zoomLevel = minZoom
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
-                        nextLevel += 1
-                    }
-                    
-                    
-                }))
+            Image("tronco2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:20)
+            
+            VStack{
+                Button(action: {
+                    self.alertIsPresented = true
+                }, label: {
+                    Image("balloon2")
+                })
+                .frame(width: 80, height: 80, alignment: .center)
+                .padding()
+                .foregroundColor(.clear)
+                .offset(x: 80, y: -20)
+                .alert(isPresented: $alertIsPresented, content: {
+                    Alert(title: Text("Vamos escovar os dentes? "), message: Text("Txai não está muito afim de abrir a boca, será que você pode dar uma forcinha?"), dismissButton: .default(Text("Vamos lá!")))
+                })
+                Image(didPinch ? "happy-mushroom" : "angry-mushroom")                    .scaleEffect(setZoom(magnification: magnificationLevel))
+                    .gesture(MagnificationGesture().updating($magnificationLevel, body: { value, state, _ in
+                        state = value
+                    }) .onEnded({ value in
+                        withAnimation {self.zoomLevel = minZoom
+                        }
+                        didPinch = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                            nextLevel += 1
+                        }
+                        
+                        
+                    }))
+                
+            }
         }
+        
     }
     
     func setZoom(magnification: CGFloat) -> CGFloat {

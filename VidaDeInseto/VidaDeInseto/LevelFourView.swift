@@ -16,21 +16,42 @@ struct LevelFourView: View {
     @State var active : Bool = false
     @State var text : String = "Tô de abuso,\npreciso de um minutinho."
     @Binding var nextLevel: Int
+    @State private var alertIsPresented = false
+    @State private var levelCompleted = false
     
     var body: some View {
         
         
         ZStack{
             
-        Image("background4")
-            .resizable()
-            .edgesIgnoringSafeArea(.all)
-            .aspectRatio(contentMode: .fill)
+            Image("sky")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20)
+            
+            Image("tronco2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:20)
         
         VStack{
             Text(text)
+            Button(action: {
+                self.alertIsPresented = true
+            }, label: {
+                Image("balloon4")
+            })
+            .frame(width: 80, height: 80, alignment: .center)
+            .padding()
+            .foregroundColor(.clear)
+            .offset(x: 80, y: -20)
+            .alert(isPresented: $alertIsPresented, content: {
+                Alert(title: Text("Um tempo para si é importante"), message: Text("Você e o Txai estão juntos há um tempo, que tal curtir sua própria companhia um pouco?"), dismissButton: .default(Text("Vamos lá!")))
+            })
+            Image(levelCompleted ? "happy-mushroom" : "angry-mushroom")
         }
-        .background(Color.red)
         .onChange(of: scenePhase) { newPhase in
             if (newPhase == .active) && active {
                 print("Active")
@@ -47,6 +68,7 @@ struct LevelFourView: View {
                     text = "Já tá de volta?\nMe deixa em paz um minutinho."
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
+                    levelCompleted = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                         nextLevel += 1
                     }

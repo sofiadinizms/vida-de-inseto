@@ -15,6 +15,7 @@ struct LevelSixView: View {
     @State var prev : CGFloat = 0
     @State var won : Bool = false
     @Binding var nextLevel: Int
+    @State private var alertIsPresented = false
     
     private func change(location: CGPoint) {
             let vector = CGVector(dx: location.x, dy: location.y)
@@ -26,49 +27,73 @@ struct LevelSixView: View {
     var body: some View {
         
         ZStack{
-        Image("background6")
-            .resizable()
-            .edgesIgnoringSafeArea(.all)
-            .aspectRatio(contentMode: .fill)
+            Image("sky")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20)
+            
+            Image("tronco2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:20)
         
-        ZStack{
-            Circle()
-                .fill(Color.black)
-                .opacity(0.2)
-                .frame(width: radius * 2, height: radius * 2)
-            
-            Circle()
-                .fill(Color.red)
-                .frame(width: radius, height: radius)
-                .opacity(0.5)
-                .offset(y: -radius/2)
-                .rotationEffect(Angle.degrees(Double(angleValue)))
-                .gesture(
-                    DragGesture()
-                        .onChanged{ value in
-                            change(location: value.location)
-                            if ((prev - angleValue) > 300){
-                                rounds += 1
-                                if (rounds == 5){
-                                    won.toggle()
-                                    print(rounds)
-                                    print(won)
+            VStack{
+                Button(action: {
+                    self.alertIsPresented = true
+                }, label: {
+                    Image("balloon6")
+                })
+                .frame(width: 80, height: 80, alignment: .center)
+                .padding()
+                .foregroundColor(.clear)
+                .offset(x: 80, y: -20)
+                .alert(isPresented: $alertIsPresented, content: {
+                    Alert(title: Text("UAU, a vista daqui de cima é linda!"), message: Text("Txai chegou à copa da árvore, mas seu estômago parece não estar acostumado com altura. Dê uma mãozinha para ajudá-lo com esse mal estar…"), dismissButton: .default(Text("Vamos lá!")))
+                })
+                ZStack{
+                    Image(won ? "happy-mushroom" : "dizzy-mushroom")
+                    Circle()
+                        .fill(Color.black)
+                        .opacity(0.2)
+                        .frame(width: radius * 2, height: radius * 2)
+                    
+                    Circle()
+                        .fill(Color.red)
+                        .frame(width: radius, height: radius)
+                        .opacity(0.5)
+                        .offset(y: -radius/2)
+                        .rotationEffect(Angle.degrees(Double(angleValue)))
+                        .gesture(
+                            DragGesture()
+                                .onChanged{ value in
+                                    change(location: value.location)
+                                    if ((prev - angleValue) > 300){
+                                        rounds += 1
+                                        if (rounds == 5){
+                                            won.toggle()
+                                            print(rounds)
+                                            print(won)
+                                        }
+                                    }
+                                    prev = angleValue
                                 }
-                            }
-                            prev = angleValue
-                        }
-                        .onEnded {_ in
-                            angleValue = 0.0
-                            rounds = 0
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
-                                nextLevel += 1
-                            }
-                        }
-                )
-            
-            Text(won ? "Ganhou" : "")
-            
-        }
+                                .onEnded {_ in
+                                    angleValue = 0.0
+                                    rounds = 0
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                                        nextLevel += 1
+                                    }
+                                }
+                        )
+                    
+                    Text(won ? "Ganhou" : "")
+                    
+                }
+                
+            }
+        
     }
     }
 }

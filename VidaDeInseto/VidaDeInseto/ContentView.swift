@@ -37,11 +37,6 @@ struct ContentView: View {
         default:
             LevelOneView(nextLevel: $level)
         }
-        ZStack{}
-            .onChange(of: level) { _ in
-                winPlayer = playSounds("sfx_sounds_powerup4.wav", 1)
-                winPlayer.play()
-                        }
         
     }
 }
