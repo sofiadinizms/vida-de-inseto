@@ -68,7 +68,8 @@ struct LevelOneView: View {
                     
                     FoodImageUIView(shakeAmount: $imageShow)
                     
-                    Image("mushroom")
+                    Image(imageShow == 2 ? "happy-mushroom" : "dizzy-mushroom")
+
                         .onShake {
                             imageShow += 1
                             
@@ -82,7 +83,6 @@ struct LevelOneView: View {
                             print("Device shaken!")
                         }
                     if imageShow == 0 {
-                        
                         Button(action: {
                             self.alertIsPresented = true
                         }, label: {

@@ -26,7 +26,7 @@ struct LevelThreeView: View {
             Image("tronco2")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .offset(x:20)
             
             VStack{
@@ -47,7 +47,7 @@ struct LevelThreeView: View {
                 .alert(isPresented: $alertIsPresented, content: {
                     Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
                 })
-                Image("sad-mushroom")
+                Image(night ? "happy-mushroom" : "sad-mushroom")
             }.onChange(of: scenePhase) { newPhase in
                 if (newPhase == .active) {
                     print("Active -- \(UIScreen.main.brightness)")

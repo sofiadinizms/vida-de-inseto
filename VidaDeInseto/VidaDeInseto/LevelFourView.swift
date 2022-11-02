@@ -17,6 +17,7 @@ struct LevelFourView: View {
     @State var text : String = "Tô de abuso,\npreciso de um minutinho."
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
+    @State private var levelCompleted = false
     
     var body: some View {
         
@@ -32,7 +33,7 @@ struct LevelFourView: View {
             Image("tronco2")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .offset(x:20)
         
         VStack{
@@ -49,7 +50,7 @@ struct LevelFourView: View {
             .alert(isPresented: $alertIsPresented, content: {
                 Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
             })
-            Image("mushroom")
+            Image(levelCompleted ? "happy-mushroom" : "angry-mushroom")
         }
         .onChange(of: scenePhase) { newPhase in
             if (newPhase == .active) && active {
@@ -67,6 +68,7 @@ struct LevelFourView: View {
                     text = "Já tá de volta?\nMe deixa em paz um minutinho."
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
+                    levelCompleted = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                         nextLevel += 1
                     }

@@ -16,10 +16,7 @@ struct LevelFiveView: View {
     @ObservedObject private var volObserver = VolumeObserver()
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
-    
-//    init() {
-//        
-//    }
+    @State private var levelCompleted = false
     
     var body: some View {
         
@@ -33,7 +30,7 @@ struct LevelFiveView: View {
             Image("tronco2")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .offset(x:20)
             
             VStack {
@@ -51,7 +48,7 @@ struct LevelFiveView: View {
                 .alert(isPresented: $alertIsPresented, content: {
                     Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
                 })
-                Image("mushroom")
+                Image(levelCompleted ? "happy-mushroom" : "sad-mushroom")
                 
                 
             }
@@ -67,6 +64,7 @@ struct LevelFiveView: View {
                     print("volume máximo")
                 } else if volObserver.volume == 0.0 {
                     print("volume mínimo")
+                    levelCompleted = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                         nextLevel += 1
                     }

@@ -27,6 +27,7 @@ struct PinchGestureView: View {
     @State private var zoomLevel: CGFloat = 1
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
+    @State private var didPinch = false
     
     var body: some View {
         
@@ -40,7 +41,7 @@ struct PinchGestureView: View {
             Image("tronco2")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .offset(x:20)
             
             VStack{
@@ -56,13 +57,13 @@ struct PinchGestureView: View {
                 .alert(isPresented: $alertIsPresented, content: {
                     Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
                 })
-                Image("mushroom")
-                    .scaleEffect(setZoom(magnification: magnificationLevel))
+                Image(didPinch ? "happy-mushroom" : "angry-mushroom")                    .scaleEffect(setZoom(magnification: magnificationLevel))
                     .gesture(MagnificationGesture().updating($magnificationLevel, body: { value, state, _ in
                         state = value
                     }) .onEnded({ value in
                         withAnimation {self.zoomLevel = minZoom
                         }
+                        didPinch = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                             nextLevel += 1
                         }

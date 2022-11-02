@@ -36,7 +36,7 @@ struct LevelSixView: View {
             Image("tronco2")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .offset(x:20)
         
             VStack{
@@ -53,7 +53,7 @@ struct LevelSixView: View {
                     Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
                 })
                 ZStack{
-                    Image("mushroom")
+                    Image(won ? "happy-mushroom" : "dizzy-mushroom")
                     Circle()
                         .fill(Color.black)
                         .opacity(0.2)
