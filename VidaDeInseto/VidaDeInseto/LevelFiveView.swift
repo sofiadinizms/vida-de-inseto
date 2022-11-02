@@ -12,13 +12,9 @@ import UIKit
 
 
 struct LevelFiveView: View {
-    @State private var audioPlayer: AVAudioPlayer!
+    @State private var forestPlayer: AVAudioPlayer!
     @ObservedObject private var volObserver = VolumeObserver()
     @Binding var nextLevel: Int
-    
-//    init() {
-//        
-//    }
     
     var body: some View {
         
@@ -29,19 +25,19 @@ struct LevelFiveView: View {
             
         }
         .onAppear(perform: {
-            
-            playSounds("ForestAudio.m4a")
-            
-            
+            forestPlayer = playSounds("ForestAudio.m4a", -1)
+            forestPlayer.play()
         })
         
         .onChange(of: volObserver.volume) { _ in
             if volObserver.volume == 1.0 {
                 print("volume máximo")
             } else if volObserver.volume == 0.0 {
+                
                 print("volume mínimo")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                     nextLevel += 1
+                    forestPlayer?.stop()
                 }
             } else {
                 print("faz alguma coisa")

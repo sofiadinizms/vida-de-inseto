@@ -69,6 +69,7 @@ struct LevelOneView: View {
                             if (imageShow == 2){
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                                     nextLevel += 1
+                                    
                                 }
                             }
                             

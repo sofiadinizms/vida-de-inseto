@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AVFoundation
+import MediaPlayer
 
 struct ContentView: View {
     
@@ -13,6 +15,8 @@ struct ContentView: View {
     @State var offset : CGFloat = 0
     let numStages : Int = 4
     @State var stage : Int = 1
+    @State private var winPlayer: AVAudioPlayer!
+
     
     @State private var level = 1
     
@@ -33,37 +37,11 @@ struct ContentView: View {
         default:
             LevelOneView(nextLevel: $level)
         }
-        
-//        ZStack{
-//            LazyVStack (spacing: 0){
-//                LevelSixView()
-//                LevelFiveView()
-//                LevelFourView()
-//                LevelThreeView()
-//                LevelTwoView()
-////                LevelOneView()
-//
-//
-//            }
-//                .offset(y: -screenSize.height * (CGFloat(numStages)-1)/2.0)
-//                .offset(y: offset)
-//                .animation(.easeOut(duration: 6), value: offset)
-//
-//            VStack(){
-//                Circle()
-//                    .opacity(0)
-//
-//                Button("Caminhar"){
-//                    if (stage < numStages){
-//                        offset += screenSize.height
-//                        stage += 1
-//                    } else {
-//                        print("You did it!")
-//                    }
-//                }
-//                .background(.black)
-//            }
-//        }
+        ZStack{}
+            .onChange(of: level) { _ in
+                winPlayer = playSounds("sfx_sounds_powerup4.wav", 1)
+                winPlayer.play()
+                        }
         
     }
 }
