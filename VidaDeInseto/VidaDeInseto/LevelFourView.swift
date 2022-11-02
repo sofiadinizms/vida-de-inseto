@@ -37,7 +37,7 @@ struct LevelFourView: View {
                 .offset(x:20)
         
         VStack{
-            Text(text)
+//            Text(text)
             Button(action: {
                 self.alertIsPresented = true
             }, label: {
@@ -48,7 +48,7 @@ struct LevelFourView: View {
             .foregroundColor(.clear)
             .offset(x: 80, y: -20)
             .alert(isPresented: $alertIsPresented, content: {
-                Alert(title: Text("Um tempo para si é importante"), message: Text("Você e o Txai estão juntos há um tempo, que tal curtir sua própria companhia um pouco?"), dismissButton: .default(Text("Vamos lá!")))
+                Alert(title: Text("Um tempo para si é importante"), message: Text("Que tal curtir sua própria companhia um pouco? O Txai tem uma mensagem para você: \(text)"), dismissButton: .default(Text("Vamos lá!")))
             })
             Image(levelCompleted ? "happy-mushroom" : "angry-mushroom")
         }
