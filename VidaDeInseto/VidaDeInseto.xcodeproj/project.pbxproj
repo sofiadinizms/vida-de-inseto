@@ -19,6 +19,8 @@
 		BD276DEE2911A19D00927910 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD276DED2911A19D00927910 /* LevelThreeView.swift */; };
 		BD3031EF2906BAE300AAC788 /* LevelOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3031EE2906BAE300AAC788 /* LevelOneView.swift */; };
 		BD3031F12906BBA600AAC788 /* FoodImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */; };
+		BDFC8F1F2913224600C9F419 /* sfx_sounds_powerup16.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F1E2913224600C9F419 /* sfx_sounds_powerup16.wav */; };
+		BDFC8F212913254900C9F419 /* sfx_deathscream_android7.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F202913254900C9F419 /* sfx_deathscream_android7.wav */; };
 		FCD295FF29100D230081E244 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD295FE29100D230081E244 /* AudioManager.swift */; };
 		FCD2960129100DF30081E244 /* ForestAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FCD2960029100DF30081E244 /* ForestAudio.m4a */; };
 		FCD2960329100ECC0081E244 /* VolumeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD2960229100ECC0081E244 /* VolumeObserver.swift */; };
@@ -40,6 +42,8 @@
 		BD276DED2911A19D00927910 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
 		BD3031EE2906BAE300AAC788 /* LevelOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneView.swift; sourceTree = "<group>"; };
 		BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageUIView.swift; sourceTree = "<group>"; };
+		BDFC8F1E2913224600C9F419 /* sfx_sounds_powerup16.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_sounds_powerup16.wav; sourceTree = "<group>"; };
+		BDFC8F202913254900C9F419 /* sfx_deathscream_android7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_deathscream_android7.wav; sourceTree = "<group>"; };
 		FCD295FE29100D230081E244 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		FCD2960029100DF30081E244 /* ForestAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ForestAudio.m4a; sourceTree = "<group>"; };
 		FCD2960229100ECC0081E244 /* VolumeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeObserver.swift; sourceTree = "<group>"; };
@@ -91,7 +95,9 @@
 				8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */,
 				8A5D41A12912D96400A35474 /* CutSceneView.swift */,
 				FCD2960029100DF30081E244 /* ForestAudio.m4a */,
+				BDFC8F1E2913224600C9F419 /* sfx_sounds_powerup16.wav */,
 				8A5D418F2912B13300A35474 /* sfx_sounds_powerup4.wav */,
+				BDFC8F202913254900C9F419 /* sfx_deathscream_android7.wav */,
 				8A5D41A32912DED100A35474 /* sfx_movement_ladder1a.wav */,
 				8AE8CFE428FECAFF00153BE3 /* Preview Content */,
 			);
@@ -167,7 +173,9 @@
 				8A5D41902912B13300A35474 /* sfx_sounds_powerup4.wav in Resources */,
 				FCD2960129100DF30081E244 /* ForestAudio.m4a in Resources */,
 				8AE8CFE628FECAFF00153BE3 /* Preview Assets.xcassets in Resources */,
+				BDFC8F212913254900C9F419 /* sfx_deathscream_android7.wav in Resources */,
 				8A5D41A42912DED100A35474 /* sfx_movement_ladder1a.wav in Resources */,
+				BDFC8F1F2913224600C9F419 /* sfx_sounds_powerup16.wav in Resources */,
 				8AE8CFE328FECAFF00153BE3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

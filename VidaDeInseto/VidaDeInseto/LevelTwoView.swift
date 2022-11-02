@@ -28,6 +28,8 @@ struct PinchGestureView: View {
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
     @State private var didPinch = false
+    let screenSize = UIScreen.main.bounds
+    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
     
     var body: some View {
         
@@ -57,13 +59,17 @@ struct PinchGestureView: View {
                 .alert(isPresented: $alertIsPresented, content: {
                     Alert(title: Text("Vamos escovar os dentes? "), message: Text("Txai não está muito afim de abrir a boca, será que você pode dar uma forcinha?"), dismissButton: .default(Text("Vamos lá!")))
                 })
-                Image(didPinch ? "happy-mushroom" : "angry-mushroom")                    .scaleEffect(setZoom(magnification: magnificationLevel))
+                Image(didPinch ? "happy-mushroom" : "angry-mushroom")
+                    .resizable()
+                    .frame(width: screenSize.width * 0.5, height: screenSize.width * 0.5)
+                    .scaleEffect(setZoom(magnification: magnificationLevel))
                     .gesture(MagnificationGesture().updating($magnificationLevel, body: { value, state, _ in
                         state = value
                     }) .onEnded({ value in
                         withAnimation {self.zoomLevel = minZoom
                         }
                         didPinch = true
+                        victoryPlayer?.play()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                             nextLevel += 1
                         }
@@ -84,6 +90,6 @@ struct PinchGestureView: View {
 
 struct LevelTwoView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelTwoView(nextLevel: .constant(1))
+        LevelTwoView(nextLevel: .constant(3))
     }
 }

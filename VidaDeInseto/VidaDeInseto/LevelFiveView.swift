@@ -17,6 +17,8 @@ struct LevelFiveView: View {
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
     @State private var levelCompleted = false
+    let screenSize = UIScreen.main.bounds
+    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
     
     var body: some View {
         
@@ -49,6 +51,8 @@ struct LevelFiveView: View {
                     Alert(title: Text("Sinta a paz da natureza"), message: Text("Aproveita para curtir com o Txai os sons da natureza."), dismissButton: .default(Text("Vamos lá!")))
                 })
                 Image(levelCompleted ? "happy-mushroom" : "sad-mushroom")
+                    .resizable()
+                    .frame(width: screenSize.width * 0.5, height: screenSize.width * 0.5)
                 
                 
             }
@@ -64,17 +68,13 @@ struct LevelFiveView: View {
                 if volObserver.volume == 1.0 {
                     print("volume máximo")
                     levelCompleted = true
+                    victoryPlayer?.play()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                        nextLevel += 1
                        forestPlayer?.stop()
                     }
                 } else if volObserver.volume == 0.0 {
                     print("volume mínimo")
-//                    levelCompleted = true
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
-//                       nextLevel += 1
-//                       forestPlayer?.stop()
-//                    }
                 } else {
                     print("faz alguma coisa")
                 }

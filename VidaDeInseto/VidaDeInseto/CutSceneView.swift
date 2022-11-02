@@ -16,6 +16,7 @@ struct CutSceneView: View {
     @State private var climbPlayer: AVAudioPlayer!
     let screenSize = UIScreen.main.bounds
     @State var repeats = true
+//    @Binding var nextLevel: Int
     
     
     var body: some View {

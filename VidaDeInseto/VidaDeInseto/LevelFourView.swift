@@ -18,6 +18,8 @@ struct LevelFourView: View {
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
     @State private var levelCompleted = false
+    let screenSize = UIScreen.main.bounds
+    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
     
     var body: some View {
         
@@ -51,6 +53,8 @@ struct LevelFourView: View {
                 Alert(title: Text("Um tempo para si é importante"), message: Text("Que tal curtir sua própria companhia um pouco? O Txai tem uma mensagem para você: \(text)"), dismissButton: .default(Text("Vamos lá!")))
             })
             Image(levelCompleted ? "happy-mushroom" : "angry-mushroom")
+                .resizable()
+                .frame(width: screenSize.width * 0.5, height: screenSize.width * 0.5)
         }
         .onChange(of: scenePhase) { newPhase in
             if (newPhase == .active) && active {
@@ -69,6 +73,7 @@ struct LevelFourView: View {
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
                     levelCompleted = true
+                    victoryPlayer?.play()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                         nextLevel += 1
                     }

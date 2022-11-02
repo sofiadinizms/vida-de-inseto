@@ -13,6 +13,8 @@ struct LevelThreeView: View {
     @Environment(\.scenePhase) var scenePhase
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
+    let screenSize = UIScreen.main.bounds
+    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
     
     var body: some View {
         ZStack{
@@ -30,11 +32,6 @@ struct LevelThreeView: View {
                 .offset(x:20)
             
             VStack{
-//                if night{
-//                    Image("moon")
-//                } else {
-//                    Image("sun")
-//                }
                 Button(action: {
                     self.alertIsPresented = true
                 }, label: {
@@ -48,12 +45,15 @@ struct LevelThreeView: View {
                     Alert(title: Text("Hora da soneca"), message: Text("Txai está querendo descansar e essa luz está atrapalhando. Mostre a ele que você se importa com a qualidade do sono dele."), dismissButton: .default(Text("Vamos lá!")))
                 })
                 Image(night ? "happy-mushroom" : "sad-mushroom")
+                    .resizable()
+                    .frame(width: screenSize.width * 0.5, height: screenSize.width * 0.5)
             }.onChange(of: scenePhase) { newPhase in
                 if (newPhase == .active) {
                     print("Active -- \(UIScreen.main.brightness)")
                     if UIScreen.main.brightness == CGFloat(0){
                         print("ganhou!")
                         night = true
+                        victoryPlayer?.play()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                             nextLevel += 1
                         }

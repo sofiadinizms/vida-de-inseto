@@ -47,6 +47,10 @@ struct LevelOneView: View {
     @State var isShaken = false
     @State private var alertIsPresented = false
     @Binding var nextLevel: Int
+    let screenSize = UIScreen.main.bounds
+    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
+    let hungerPlayer = playSounds("sfx_deathscream_android7", 1)
+
     
     var body: some View {
         
@@ -69,11 +73,14 @@ struct LevelOneView: View {
                     FoodImageUIView(shakeAmount: $imageShow)
                     
                     Image(imageShow == 2 ? "happy-mushroom" : "dizzy-mushroom")
+                        .resizable()
+                        .frame(width: screenSize.width * 0.5, height: screenSize.width * 0.5)
 
                         .onShake {
                             imageShow += 1
                             
                             if (imageShow == 2){
+                                victoryPlayer?.play()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                                     nextLevel += 1
                                     
@@ -96,6 +103,7 @@ struct LevelOneView: View {
                         .alert(isPresented: $alertIsPresented, content: {
                             Alert(title: Text("Que fome!"), message: Text("Essa frutinhas parecem apetitosas, pena que o Txai não consegue colhê-las sozinho. Você poderia dar uma mãozinha (duas, na verdade…) para que as frutinhas caiam da árvore?"), dismissButton: .default(Text("Vamos lá!")))
                         })
+                        
                         
                         
                         
