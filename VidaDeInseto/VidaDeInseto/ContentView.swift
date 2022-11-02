@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AVFoundation
+import MediaPlayer
 
 struct ContentView: View {
     
@@ -13,6 +15,8 @@ struct ContentView: View {
     @State var offset : CGFloat = 0
     let numStages : Int = 4
     @State var stage : Int = 1
+    @State private var winPlayer: AVAudioPlayer!
+
     
     @State private var level = 1
     

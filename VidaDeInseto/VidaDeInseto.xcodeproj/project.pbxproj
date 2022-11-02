@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8A338E79290971D90096209E /* LevelFourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A338E78290971D90096209E /* LevelFourView.swift */; };
 		8A338E7D290973360096209E /* LevelSixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A338E7C290973360096209E /* LevelSixView.swift */; };
+		8A5D41902912B13300A35474 /* sfx_sounds_powerup4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A5D418F2912B13300A35474 /* sfx_sounds_powerup4.wav */; };
+		8A5D41A22912D96400A35474 /* CutSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D41A12912D96400A35474 /* CutSceneView.swift */; };
+		8A5D41A42912DED100A35474 /* sfx_movement_ladder1a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A5D41A32912DED100A35474 /* sfx_movement_ladder1a.wav */; };
 		8AE8CFDF28FECAFE00153BE3 /* VidaDeInsetoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8CFDE28FECAFE00153BE3 /* VidaDeInsetoApp.swift */; };
 		8AE8CFE128FECAFE00153BE3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8CFE028FECAFE00153BE3 /* ContentView.swift */; };
 		8AE8CFE328FECAFF00153BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		8A338E78290971D90096209E /* LevelFourView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelFourView.swift; path = VidaDeInseto/LevelFourView.swift; sourceTree = SOURCE_ROOT; };
 		8A338E7C290973360096209E /* LevelSixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSixView.swift; sourceTree = "<group>"; };
+		8A5D418F2912B13300A35474 /* sfx_sounds_powerup4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_sounds_powerup4.wav; sourceTree = "<group>"; };
+		8A5D41A12912D96400A35474 /* CutSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutSceneView.swift; sourceTree = "<group>"; };
+		8A5D41A32912DED100A35474 /* sfx_movement_ladder1a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_movement_ladder1a.wav; sourceTree = "<group>"; };
 		8AE8CFDB28FECAFE00153BE3 /* VidaDeInseto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidaDeInseto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE8CFDE28FECAFE00153BE3 /* VidaDeInsetoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidaDeInsetoApp.swift; sourceTree = "<group>"; };
 		8AE8CFE028FECAFE00153BE3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,15 +81,18 @@
 				8AE8CFE028FECAFE00153BE3 /* ContentView.swift */,
 				FCD295FE29100D230081E244 /* AudioManager.swift */,
 				FCD2960229100ECC0081E244 /* VolumeObserver.swift */,
-				FCD2960429100FA30081E244 /* LevelFiveView.swift */,
 				BD3031F02906BBA600AAC788 /* FoodImageUIView.swift */,
 				BD3031EE2906BAE300AAC788 /* LevelOneView.swift */,
 				FCE58F8C2909D890005BBCB1 /* LevelTwoView.swift */,
-				8A338E78290971D90096209E /* LevelFourView.swift */,
-				8A338E7C290973360096209E /* LevelSixView.swift */,
 				BD276DED2911A19D00927910 /* LevelThreeView.swift */,
+				8A338E78290971D90096209E /* LevelFourView.swift */,
+				FCD2960429100FA30081E244 /* LevelFiveView.swift */,
+				8A338E7C290973360096209E /* LevelSixView.swift */,
 				8AE8CFE228FECAFF00153BE3 /* Assets.xcassets */,
+				8A5D41A12912D96400A35474 /* CutSceneView.swift */,
 				FCD2960029100DF30081E244 /* ForestAudio.m4a */,
+				8A5D418F2912B13300A35474 /* sfx_sounds_powerup4.wav */,
+				8A5D41A32912DED100A35474 /* sfx_movement_ladder1a.wav */,
 				8AE8CFE428FECAFF00153BE3 /* Preview Content */,
 			);
 			path = VidaDeInseto;
@@ -155,8 +164,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5D41902912B13300A35474 /* sfx_sounds_powerup4.wav in Resources */,
 				FCD2960129100DF30081E244 /* ForestAudio.m4a in Resources */,
 				8AE8CFE628FECAFF00153BE3 /* Preview Assets.xcassets in Resources */,
+				8A5D41A42912DED100A35474 /* sfx_movement_ladder1a.wav in Resources */,
 				8AE8CFE328FECAFF00153BE3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +189,7 @@
 				FCD2960329100ECC0081E244 /* VolumeObserver.swift in Sources */,
 				8AE8CFDF28FECAFE00153BE3 /* VidaDeInsetoApp.swift in Sources */,
 				8A338E79290971D90096209E /* LevelFourView.swift in Sources */,
+				8A5D41A22912D96400A35474 /* CutSceneView.swift in Sources */,
 				BD3031EF2906BAE300AAC788 /* LevelOneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
