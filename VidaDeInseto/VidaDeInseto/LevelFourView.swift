@@ -16,21 +16,41 @@ struct LevelFourView: View {
     @State var active : Bool = false
     @State var text : String = "Tô de abuso,\npreciso de um minutinho."
     @Binding var nextLevel: Int
+    @State private var alertIsPresented = false
     
     var body: some View {
         
         
         ZStack{
             
-        Image("background4")
-            .resizable()
-            .edgesIgnoringSafeArea(.all)
-            .aspectRatio(contentMode: .fill)
+            Image("sky")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20)
+            
+            Image("tronco2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20)
         
         VStack{
             Text(text)
+            Button(action: {
+                self.alertIsPresented = true
+            }, label: {
+                Image("balloon")
+            })
+            .frame(width: 80, height: 80, alignment: .center)
+            .padding()
+            .foregroundColor(.clear)
+            .offset(x: 50, y: 10)
+            .alert(isPresented: $alertIsPresented, content: {
+                Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+            })
+            Image("mushroom")
         }
-        .background(Color.red)
         .onChange(of: scenePhase) { newPhase in
             if (newPhase == .active) && active {
                 print("Active")

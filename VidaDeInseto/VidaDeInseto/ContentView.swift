@@ -34,37 +34,6 @@ struct ContentView: View {
             LevelOneView(nextLevel: $level)
         }
         
-//        ZStack{
-//            LazyVStack (spacing: 0){
-//                LevelSixView()
-//                LevelFiveView()
-//                LevelFourView()
-//                LevelThreeView()
-//                LevelTwoView()
-////                LevelOneView()
-//
-//
-//            }
-//                .offset(y: -screenSize.height * (CGFloat(numStages)-1)/2.0)
-//                .offset(y: offset)
-//                .animation(.easeOut(duration: 6), value: offset)
-//
-//            VStack(){
-//                Circle()
-//                    .opacity(0)
-//
-//                Button("Caminhar"){
-//                    if (stage < numStages){
-//                        offset += screenSize.height
-//                        stage += 1
-//                    } else {
-//                        print("You did it!")
-//                    }
-//                }
-//                .background(.black)
-//            }
-//        }
-        
     }
 }
 

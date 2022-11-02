@@ -51,11 +51,17 @@ struct LevelOneView: View {
     var body: some View {
         
         ZStack{
-            
-            Image("background1")
+            Image("sky")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fill)
+                .offset(x:20)
+            
+            Image("tronco1")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20)
             
             VStack{
                 ZStack{
