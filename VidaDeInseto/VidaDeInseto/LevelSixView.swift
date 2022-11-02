@@ -53,16 +53,15 @@ struct LevelSixView: View {
                     Alert(title: Text("UAU, a vista daqui de cima é linda!"), message: Text("Txai chegou à copa da árvore, mas seu estômago parece não estar acostumado com altura. Dê uma mãozinha para ajudá-lo com esse mal estar…"), dismissButton: .default(Text("Vamos lá!")))
                 })
                 ZStack{
-                    Image(won ? "happy-mushroom" : "dizzy-mushroom")
                     Circle()
-                        .fill(Color.black)
+                        .fill(Color.clear)
                         .opacity(0.2)
                         .frame(width: radius * 2, height: radius * 2)
                     
                     Circle()
-                        .fill(Color.red)
+                        .fill(Color.green)
                         .frame(width: radius, height: radius)
-                        .opacity(0.5)
+                        .opacity(0.3)
                         .offset(y: -radius/2)
                         .rotationEffect(Angle.degrees(Double(angleValue)))
                         .gesture(
@@ -87,8 +86,9 @@ struct LevelSixView: View {
                                     }
                                 }
                         )
+                    Image(won ? "happy-mushroom" : "dizzy-mushroom")
                     
-                    Text(won ? "Ganhou" : "")
+//                    Text(won ? "Ganhou" : "")
                     
                 }
                 

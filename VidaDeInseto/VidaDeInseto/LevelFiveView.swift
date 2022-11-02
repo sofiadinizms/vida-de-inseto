@@ -63,13 +63,18 @@ struct LevelFiveView: View {
             .onChange(of: volObserver.volume) { _ in
                 if volObserver.volume == 1.0 {
                     print("volume máximo")
-                } else if volObserver.volume == 0.0 {
-                    print("volume mínimo")
                     levelCompleted = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                        nextLevel += 1
                        forestPlayer?.stop()
                     }
+                } else if volObserver.volume == 0.0 {
+                    print("volume mínimo")
+//                    levelCompleted = true
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+//                       nextLevel += 1
+//                       forestPlayer?.stop()
+//                    }
                 } else {
                     print("faz alguma coisa")
                 }
