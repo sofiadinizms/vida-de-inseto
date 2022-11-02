@@ -43,14 +43,14 @@ struct LevelSixView: View {
                 Button(action: {
                     self.alertIsPresented = true
                 }, label: {
-                    Image("balloon")
+                    Image("balloon6")
                 })
                 .frame(width: 80, height: 80, alignment: .center)
                 .padding()
                 .foregroundColor(.clear)
-                .offset(x: 50, y: 10)
+                .offset(x: 80, y: -20)
                 .alert(isPresented: $alertIsPresented, content: {
-                    Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+                    Alert(title: Text("UAU, a vista daqui de cima é linda!"), message: Text("Txai chegou à copa da árvore, mas seu estômago parece não estar acostumado com altura. Dê uma mãozinha para ajudá-lo com esse mal estar…"), dismissButton: .default(Text("Vamos lá!")))
                 })
                 ZStack{
                     Image(won ? "happy-mushroom" : "dizzy-mushroom")

@@ -21,8 +21,8 @@ struct FoodImageUIView: View {
             ZStack{
                 ForEach(0..<14){i in
                     Circle()
-                        .frame(width: 40, height: 40, alignment: .center)
-                        .overlay(Image("orange"))
+                        .frame(width: 15, height: 15, alignment: .center)
+                        .overlay(Image("apple"))
                         .foregroundColor(.clear)
                         .offset(x: shakeAmount == 1 ? CGFloat(xPositions[i]) : 0, y: shakeAmount == 1 ? CGFloat(yPositions[i]) : 0)
                         .opacity(shakeAmount > 0 ? 1 : 0)

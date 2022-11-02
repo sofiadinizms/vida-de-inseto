@@ -30,22 +30,22 @@ struct LevelThreeView: View {
                 .offset(x:20)
             
             VStack{
-                if night{
-                    Image("moon")
-                } else {
-                    Image("sun")
-                }
+//                if night{
+//                    Image("moon")
+//                } else {
+//                    Image("sun")
+//                }
                 Button(action: {
                     self.alertIsPresented = true
                 }, label: {
-                    Image("balloon")
+                    Image("balloon3")
                 })
                 .frame(width: 80, height: 80, alignment: .center)
                 .padding()
                 .foregroundColor(.clear)
-                .offset(x: 50)
+                .offset(x: 80, y: -20)
                 .alert(isPresented: $alertIsPresented, content: {
-                    Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+                    Alert(title: Text("Hora da soneca"), message: Text("Txai está querendo descansar e essa luz está atrapalhando. Mostre a ele que você se importa com a qualidade do sono dele."), dismissButton: .default(Text("Vamos lá!")))
                 })
                 Image(night ? "happy-mushroom" : "sad-mushroom")
             }.onChange(of: scenePhase) { newPhase in

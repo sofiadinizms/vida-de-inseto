@@ -60,8 +60,8 @@ struct LevelOneView: View {
             Image("tronco1")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
-                .offset(x:20)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:-15)
             
             VStack{
                 ZStack{
@@ -86,14 +86,14 @@ struct LevelOneView: View {
                         Button(action: {
                             self.alertIsPresented = true
                         }, label: {
-                            Image("balloon")
+                            Image("balloon1")
                         })
                         .frame(width: 80, height: 80, alignment: .center)
                         .padding()
                         .foregroundColor(.clear)
-                        .offset(x: 50, y: -80)
+                        .offset(x: 100, y: -160)
                         .alert(isPresented: $alertIsPresented, content: {
-                            Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+                            Alert(title: Text("Que fome!"), message: Text("Essa frutinhas parecem apetitosas, pena que o Txai não consegue colhê-las sozinho. Você poderia dar uma mãozinha (duas, na verdade…) para que as frutinhas caiam da árvore?"), dismissButton: .default(Text("Vamos lá!")))
                         })
                         
                         

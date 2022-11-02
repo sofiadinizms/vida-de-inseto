@@ -41,14 +41,14 @@ struct LevelFourView: View {
             Button(action: {
                 self.alertIsPresented = true
             }, label: {
-                Image("balloon")
+                Image("balloon4")
             })
             .frame(width: 80, height: 80, alignment: .center)
             .padding()
             .foregroundColor(.clear)
-            .offset(x: 50, y: 10)
+            .offset(x: 80, y: -20)
             .alert(isPresented: $alertIsPresented, content: {
-                Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+                Alert(title: Text("Um tempo para si é importante"), message: Text("Você e o Txai estão juntos há um tempo, que tal curtir sua própria companhia um pouco?"), dismissButton: .default(Text("Vamos lá!")))
             })
             Image(levelCompleted ? "happy-mushroom" : "angry-mushroom")
         }

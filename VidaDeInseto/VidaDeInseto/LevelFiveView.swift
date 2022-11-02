@@ -35,18 +35,18 @@ struct LevelFiveView: View {
             
             VStack {
                 
-                Text("current volume is \(volObserver.volume)")
+                //Text("current volume is \(volObserver.volume)")
                 Button(action: {
                     self.alertIsPresented = true
                 }, label: {
-                    Image("balloon")
+                    Image("balloon5")
                 })
                 .frame(width: 80, height: 80, alignment: .center)
                 .padding()
                 .foregroundColor(.clear)
-                .offset(x: 50, y: 10)
+                .offset(x: 100, y: -20)
                 .alert(isPresented: $alertIsPresented, content: {
-                    Alert(title: Text("Teste de alert"), message: Text("Textinho da dica aqui llalalalalalal"), dismissButton: .default(Text("Vamos lá!")))
+                    Alert(title: Text("Sinta a paz da natureza"), message: Text("Aproveita para curtir com o Txai os sons da natureza."), dismissButton: .default(Text("Vamos lá!")))
                 })
                 Image(levelCompleted ? "happy-mushroom" : "sad-mushroom")
                 
