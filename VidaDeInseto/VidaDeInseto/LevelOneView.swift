@@ -73,6 +73,12 @@ struct LevelOneView: View {
                 .aspectRatio(contentMode: .fit)
                 .offset(x:-15)
             
+            Image("right-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:-140, y: 210)
+            
             VStack{
                 ZStack{
                     

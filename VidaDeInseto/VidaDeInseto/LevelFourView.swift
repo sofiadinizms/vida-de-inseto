@@ -43,6 +43,18 @@ struct LevelFourView: View {
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fit)
                 .offset(x:-15)
+            
+            Image("left-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20, y: 30)
+            
+            Image("right-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:0, y: -230)
         
         VStack{
 //            Text(text)

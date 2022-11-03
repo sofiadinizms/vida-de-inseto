@@ -52,6 +52,18 @@ struct PinchGestureView: View {
                 .aspectRatio(contentMode: .fit)
                 .offset(x:-15)
             
+            Image("left-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:40, y: 0)
+            
+            Image("right-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:25, y: -250)
+            
             VStack{
                 Button(action: {
                     self.alertIsPresented = true

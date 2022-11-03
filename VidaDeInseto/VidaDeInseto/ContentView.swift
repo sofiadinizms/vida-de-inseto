@@ -25,14 +25,24 @@ struct ContentView: View {
         case 1:
             LevelOneView(nextLevel:$level)
         case 2:
-            LevelTwoView(nextLevel: $level)
+            CutSceneView(nextLevel: $level)
         case 3:
-            LevelThreeView(nextLevel: $level)
+            LevelTwoView(nextLevel: $level)
         case 4:
-            LevelFourView(nextLevel: $level)
+            CutSceneView(nextLevel: $level)
         case 5:
-            LevelFiveView(nextLevel: $level)
+            LevelThreeView(nextLevel: $level)
         case 6:
+            CutSceneView(nextLevel: $level)
+        case 7:
+            LevelFourView(nextLevel: $level)
+        case 8:
+            CutSceneView(nextLevel: $level)
+        case 9:
+            LevelFiveView(nextLevel: $level)
+        case 10:
+            CutSceneView(nextLevel: $level)
+        case 11:
             LevelSixView(nextLevel: $level)
         default:
             LevelOneView(nextLevel: $level)

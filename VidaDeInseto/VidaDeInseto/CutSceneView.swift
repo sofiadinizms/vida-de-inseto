@@ -16,7 +16,7 @@ struct CutSceneView: View {
     @State private var climbPlayer: AVAudioPlayer!
     let screenSize = UIScreen.main.bounds
     @State var repeats = true
-//    @Binding var nextLevel: Int
+    @Binding var nextLevel: Int
     
     
     var body: some View {
@@ -70,7 +70,8 @@ struct CutSceneView: View {
             }
             
             if (turns == 4){
-                // change view
+                turns += 1
+                nextLevel += 1
                 repeats = false
             }
             
@@ -82,6 +83,6 @@ struct CutSceneView: View {
 
 struct CutSceneView_Previews: PreviewProvider {
     static var previews: some View {
-        CutSceneView()
+        CutSceneView(nextLevel: .constant(2))
     }
 }
