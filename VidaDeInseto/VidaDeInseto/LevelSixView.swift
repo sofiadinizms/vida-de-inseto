@@ -40,6 +40,18 @@ struct LevelSixView: View {
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fit)
                 .offset(x:20)
+            
+            Image("left-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:180, y: 240)
+            
+            Image("plant2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:-15)
         
             VStack{
                 Button(action: {

@@ -35,6 +35,24 @@ struct LevelFiveView: View {
                 .aspectRatio(contentMode: .fit)
                 .offset(x:20)
             
+            Image("plant")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:-15)
+            
+            Image("right-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:-130, y: 245)
+            
+            Image("right-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:50, y: 390)
+            
             VStack {
                 
                 //Text("current volume is \(volObserver.volume)")

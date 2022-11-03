@@ -48,8 +48,8 @@ struct LevelOneView: View {
     @State private var alertIsPresented = false
     @Binding var nextLevel: Int
     let screenSize = UIScreen.main.bounds
-    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
-    let hungerPlayer = playSounds("sfx_deathscream_android7", 1)
+//    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
+//    let hungerPlayer = playSounds("sfx_deathscream_android7", 1)
 
     
     var body: some View {
@@ -62,6 +62,12 @@ struct LevelOneView: View {
                 .offset(x:20)
             
             Image("tronco1")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:-15)
+            
+            Image("plant")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fit)
@@ -80,7 +86,7 @@ struct LevelOneView: View {
                             imageShow += 1
                             
                             if (imageShow == 2){
-                                victoryPlayer?.play()
+//                                victoryPlayer?.play()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                                     nextLevel += 1
                                     

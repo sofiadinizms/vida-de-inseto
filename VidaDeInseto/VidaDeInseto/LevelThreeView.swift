@@ -31,6 +31,12 @@ struct LevelThreeView: View {
                 .aspectRatio(contentMode: .fit)
                 .offset(x:20)
             
+            Image("plant")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:-15)
+            
             VStack{
                 Button(action: {
                     self.alertIsPresented = true
