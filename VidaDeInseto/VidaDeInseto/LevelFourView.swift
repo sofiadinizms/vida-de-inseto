@@ -18,6 +18,8 @@ struct LevelFourView: View {
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
     @State private var levelCompleted = false
+    let screenSize = UIScreen.main.bounds
+    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
     
     var body: some View {
         
@@ -35,6 +37,24 @@ struct LevelFourView: View {
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fit)
                 .offset(x:20)
+            
+            Image("plant2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:-15)
+            
+            Image("left-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:20, y: 30)
+            
+            Image("right-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:0, y: -230)
         
         VStack{
 //            Text(text)
@@ -46,11 +66,14 @@ struct LevelFourView: View {
             .frame(width: 80, height: 80, alignment: .center)
             .padding()
             .foregroundColor(.clear)
-            .offset(x: 80, y: -20)
+            .offset(x: 80, y: 80)
             .alert(isPresented: $alertIsPresented, content: {
                 Alert(title: Text("Um tempo para si é importante"), message: Text("Que tal curtir sua própria companhia um pouco? O Txai tem uma mensagem para você: \(text)"), dismissButton: .default(Text("Vamos lá!")))
             })
             Image(levelCompleted ? "happy-mushroom" : "angry-mushroom")
+                .resizable()
+                .frame(width: screenSize.width * 0.5, height: screenSize.width * 0.5)
+                .offset(y: 100)
         }
         .onChange(of: scenePhase) { newPhase in
             if (newPhase == .active) && active {
@@ -69,6 +92,7 @@ struct LevelFourView: View {
                 } else {
                     text = "Agora sim, bebê!\nBora dar uma subidinha!"
                     levelCompleted = true
+                    victoryPlayer?.play()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                         nextLevel += 1
                     }

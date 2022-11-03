@@ -16,6 +16,8 @@ struct LevelSixView: View {
     @State var won : Bool = false
     @Binding var nextLevel: Int
     @State private var alertIsPresented = false
+    let screenSize = UIScreen.main.bounds
+    let victoryPlayer = playSounds("sfx_sounds_powerup16.wav", 1)
     
     private func change(location: CGPoint) {
             let vector = CGVector(dx: location.x, dy: location.y)
@@ -38,6 +40,18 @@ struct LevelSixView: View {
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fit)
                 .offset(x:20)
+            
+            Image("left-branch")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .offset(x:180, y: 240)
+            
+            Image("plant2")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fit)
+                .offset(x:-15)
         
             VStack{
                 Button(action: {
@@ -48,11 +62,15 @@ struct LevelSixView: View {
                 .frame(width: 80, height: 80, alignment: .center)
                 .padding()
                 .foregroundColor(.clear)
-                .offset(x: 80, y: -20)
+                .offset(x: 80, y: -100)
                 .alert(isPresented: $alertIsPresented, content: {
                     Alert(title: Text("UAU, a vista daqui de cima é linda!"), message: Text("Txai chegou à copa da árvore, mas seu estômago parece não estar acostumado com altura. Dê uma mãozinha para ajudá-lo com esse mal estar…"), dismissButton: .default(Text("Vamos lá!")))
                 })
                 ZStack{
+                    Image(won ? "happy-mushroom" : "dizzy-mushroom")
+                        .resizable()
+                        .frame(width: screenSize.width * 0.5, height: screenSize.width * 0.5)
+                        .offset(y:-80)
                     Circle()
                         .fill(Color.clear)
                         .opacity(0.2)
@@ -61,7 +79,7 @@ struct LevelSixView: View {
                     Circle()
                         .fill(Color.green)
                         .frame(width: radius, height: radius)
-                        .opacity(0.3)
+                        .opacity(0.2)
                         .offset(y: -radius/2)
                         .rotationEffect(Angle.degrees(Double(angleValue)))
                         .gesture(
@@ -81,13 +99,12 @@ struct LevelSixView: View {
                                 .onEnded {_ in
                                     angleValue = 0.0
                                     rounds = 0
+                                    victoryPlayer?.play()
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                                         nextLevel += 1
                                     }
                                 }
                         )
-                    Image(won ? "happy-mushroom" : "dizzy-mushroom")
-                    
 //                    Text(won ? "Ganhou" : "")
                     
                 }
